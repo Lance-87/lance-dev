@@ -1,8 +1,7 @@
 //@ts-nocheck
 
-import Header from "@/components/layout/Header";
 import ProviderWrapper from "@/components/providers/ProviderWrapper";
-import ThemeContext from "@/components/providers/ThemeContext";
+import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -21,9 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <ProviderWrapper>
-          <Header>{children}</Header>{" "}
+          <Header />
+          {children}
         </ProviderWrapper>
       </body>
     </html>

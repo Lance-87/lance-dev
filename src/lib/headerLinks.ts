@@ -11,6 +11,10 @@ const headerLinks: Array<HeaderLink> = [
   {
     label: "Projects",
     href:"/projects"
+  },
+  {
+    label: "Contact",
+    href:"/contact"
   }
 ];
 
