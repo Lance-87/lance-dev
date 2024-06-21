@@ -7,14 +7,14 @@ import { Sun, Moon } from "react-feather";
 import { AnimatePresence, motion as mt } from "framer-motion";
 
 //fonts
-import { Reddit_Mono } from "next/font/google";
+import { Fragment_Mono } from "next/font/google";
 
 //lib imports
 import headerLinks from "@/lib/headerLinks";
 import BaseButton from "../templates/BaseButton";
 
-const reddit_mono = Reddit_Mono({
-  weight: "600",
+const reddit_mono = Fragment_Mono({
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -23,9 +23,9 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full xl:h-24 h-18 absolute left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
+      className={`w-full fixed xl:h-24 h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
     >
-      <nav className="w-full h-full flex justify-end items-center gap-6 relative">
+      <nav className="w-full h-full flex justify-end items-center gap-2 relative">
         <NavigationItems ctx={{ theme, setTheme }} />
         <ChangeThemeBtn ctx={{ theme, setTheme }} />
       </nav>
@@ -40,10 +40,10 @@ function NavigationItems({ ctx }: { ctx: Theme }) {
   const hoverTextCol =
     theme == "light" ? "after:hover:bg-black" : "after:hover:bg-white";
   const baseAfterProps =
-    "after:w-full after:h-0 after:hover:h-1 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all";
+    "after:w-full after:h-0 after:hover:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all";
 
   const items = headerLinks.map((props, idx) => (
-    <li className="px-3 py-3 relative " key={idx}>
+    <li className="px-2 py-2 relative tracking-tight text-sm" key={idx}>
       <a href={props.href} className={`${hoverTextCol} ${baseAfterProps}`}>
         {props.label}
       </a>
@@ -53,7 +53,7 @@ function NavigationItems({ ctx }: { ctx: Theme }) {
   return (
     <div className="h-max w-max">
       <ul
-        className={`flex items-center content-center gap-4 ${reddit_mono.className} transition ${textCol} lg:text-lg xl:text-2xl relative`}
+        className={`flex items-center content-center gap-1 ${reddit_mono.className} transition ${textCol} lg:text-lg xl:text-2xl relative`}
       >
         {items}
       </ul>
@@ -67,16 +67,16 @@ function ChangeThemeBtn({ ctx }: { ctx: Theme }) {
   const hoverTextCol =
     theme == "light" ? "after:hover:bg-black" : "after:hover:bg-white";
   const baseAfterProps =
-    "after:w-full after:h-0 after:hover:h-1 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all";
+    "after:w-full after:h-0 after:hover:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all";
 
   const icon =
     theme == "light" ? (
       <AnimatedSunMoon key="sun">
-        <Sun size={"1.75rem"} color={`black`} />
+        <Sun size={"1.25rem"} color={`black`} />
       </AnimatedSunMoon>
     ) : (
       <AnimatedSunMoon key="moon">
-        <Moon size={"1.75rem"} color={"white"} />
+        <Moon size={"1.25rem"} color={"white"} />
       </AnimatedSunMoon>
     );
 
