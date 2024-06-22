@@ -20,14 +20,17 @@ export default function PageSection(props: PageSectionProps) {
 		case 96:
 			remHeight = "h-96";
 			break;
+		case 72:
+			remHeight = "h-72";
+			break;
 		case 162:
-			remHeight = "h-162"
+			remHeight = "h-162";
 		default:
 			break;
 	}
 
 	return (
-		<section className={`border border-red-400 h- w-full ${remHeight} flex justify-center`}>
+		<section className={`w-full relative ${remHeight} flex justify-center`}>
 			<div className={` ${flexCenter} w-full h-full`}>{props.children}</div>
 		</section>
 	);
