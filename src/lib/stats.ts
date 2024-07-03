@@ -20,6 +20,11 @@ const stats: Array<Stats> = [
         stat: "4",
         label:"Unique Skills",
         description:"Although not expert at any of this, I know many technical skills such as CAD Modeling, Graphic Design, Programming, Spreadsheets."
+    },
+    {
+        stat: "30+",
+        label:"Volunteering Hours",
+        description:"I was mainly involved with FIRST where I volunteered to events such as FLL and FTC."
     }
 ]
 
