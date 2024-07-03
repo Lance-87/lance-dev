@@ -41,14 +41,14 @@ function HomeHero() {
 			<div className="w-max h-128 flex items-center text-center z-10">
 				<div className="py-6 max-md:w-96 w-162 h-fit">
 					<h1
-						className={`text-5xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
+						className={`text-6xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
 					>
 						You actually opened it. I'm Lance.
 					</h1>
 					<p className={`mt-3 ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}>
 						I do things, so many things. CAD is one of them.
 					</p>
-					<button className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-3 rounded-3xl`}>
+					<button type="button" className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-3 rounded-3xl`}>
 						About me
 					</button>
 				</div>
