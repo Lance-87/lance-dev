@@ -1,7 +1,7 @@
 import { DM_Sans, Inter } from "next/font/google";
 
 const heading = DM_Sans({
-	weight: "700",
+	weight: "900",
 	subsets: ["latin"],
 });
 
@@ -11,7 +11,7 @@ const hero = DM_Sans({
 });
 
 const subtext = Inter({
-	weight: "400",
+	weight: "300",
 	subsets: ["latin"],
 });
 const num = Inter({

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 interface PageSectionProps {
-	height: number;
+	height: number | string;
 	flexCenter?: boolean;
 	children?: ReactNode;
 }
@@ -25,13 +25,13 @@ export default function PageSection(props: PageSectionProps) {
 			break;
 		case 162:
 			remHeight = "h-162";
+			break;
+		case "fit":
+			remHeight = "h-fit";
+			break;
 		default:
 			break;
 	}
 
-	return (
-		<section className={`w-full relative ${remHeight} flex justify-center`}>
-			<div className={` ${flexCenter} w-full h-full`}>{props.children}</div>
-		</section>
-	);
+	return <section className={`w-full relative ${remHeight} ${flexCenter}`}>{props.children}</section>;
 }

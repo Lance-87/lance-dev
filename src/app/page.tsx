@@ -7,6 +7,7 @@ import { hero, subtext } from "@/lib/fonts";
 
 import PageSection from "@/components/templates/PageSection";
 import Stats from "@/components/misc/Stats";
+import ProjectsSection from "@/components/misc/ProjectsSection";
 
 export default function Home() {
 	const { theme } = useContext(ThemeContext);
@@ -15,10 +16,12 @@ export default function Home() {
 	return (
 		<main className={`${bgCol} w-full h-max transition-colors flex flex-col items-center`}>
 			<HomeHero />
-			<PageSection height={96}>
+			<PageSection height={"fit"}>
 				<Stats />
 			</PageSection>
-			<PageSection height={162}></PageSection>
+			<PageSection height={162} flexCenter>
+				<ProjectsSection />
+			</PageSection>
 			<PageSection height={162}></PageSection>
 		</main>
 	);
@@ -46,9 +49,12 @@ function HomeHero() {
 						You actually opened it. I'm Lance.
 					</h1>
 					<p className={`mt-3 ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}>
-						I do things, so many things. CAD is one of them.
+						I do things, so many things.
 					</p>
-					<button type="button" className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-3 rounded-3xl`}>
+					<button
+						type="button"
+						className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-3 rounded-3xl`}
+					>
 						About me
 					</button>
 				</div>

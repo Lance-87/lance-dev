@@ -12,6 +12,7 @@ import { AnimatePresence, motion as mt } from "framer-motion";
 import headerLinks from "@/lib/headerLinks";
 import BaseButton from "../templates/BaseButton";
 import { navigation } from "@/lib/fonts";
+import Link from "next/link";
 
 export default function Header() {
 	const { theme, setTheme } = useContext(ThemeContext);
@@ -19,7 +20,7 @@ export default function Header() {
 
 	return (
 		<header
-			className={` ${bgCol} backdrop-blur-md z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
+			className={` ${bgCol} backdrop-blur z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
 		>
 			<nav className="w-full h-full flex justify-end items-center gap-2 relative">
 				<NavigationItems ctx={{ theme, setTheme }} />
@@ -39,9 +40,9 @@ function NavigationItems({ ctx }: { ctx: Theme }) {
 
 	const items = headerLinks.map((props, idx) => (
 		<li className="px-2 py-2 relative text-md" key={idx}>
-			<a href={props.href} className={`${hoverTextCol} ${baseAfterProps}`}>
-				{props.label}
-			</a>
+			<Link href={props.href}>
+				<p className={`${hoverTextCol} ${baseAfterProps}`}>{props.label}</p>
+			</Link>
 		</li>
 	));
 
@@ -75,7 +76,9 @@ function ChangeThemeBtn({ ctx }: { ctx: Theme }) {
 		);
 
 	return (
-		<div className={`${hoverTextCol} ${baseAfterProps} max-md:hidden relative w-15 h-15 rounded-xl transition-colors`}>
+		<div
+			className={`${hoverTextCol} ${baseAfterProps} max-md:hidden relative w-15 h-15 rounded-xl transition-colors`}
+		>
 			<BaseButton props={{ onClick: setTheme }}>
 				<AnimatePresence mode="wait">{icon}</AnimatePresence>{" "}
 			</BaseButton>
