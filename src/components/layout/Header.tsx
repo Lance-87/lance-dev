@@ -13,16 +13,20 @@ import headerLinks from "@/lib/headerLinks";
 import BaseButton from "../templates/BaseButton";
 import { navigation } from "@/lib/fonts";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
 	const { theme, setTheme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-100/10" : "bg-gray-800/20";
+	const bgCol = theme == "light" ? "bg-neutral-100/10" : "bg-black/10";
 
 	return (
 		<header
 			className={` ${bgCol} backdrop-blur z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
 		>
-			<nav className="w-full h-full flex justify-end items-center gap-2 relative">
+			<nav className="w-full h-full flex justify-end items-center gap-2 relative max-w-7xl mx-auto">
+				<Link href="/" className="flex-1">
+					<Image alt="site logo" src={"/Icon.png"} width={49} height={40} />
+				</Link>
 				<NavigationItems ctx={{ theme, setTheme }} />
 				<ChangeThemeBtn ctx={{ theme, setTheme }} />
 			</nav>
@@ -34,9 +38,9 @@ function NavigationItems({ ctx }: { ctx: Theme }) {
 	const { theme } = ctx;
 
 	const textCol = theme == "light" ? "text-gray-600" : "text-gray-200";
-	const hoverTextCol = theme == "light" ? "after:hover:bg-black" : "after:hover:bg-white";
+	const hoverTextCol = theme == "light" ? "after:bg-black" : "after:bg-white";
 	const baseAfterProps =
-		"after:w-full after:h-0 after:hover:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all ";
+		"after:h-0.5 after:w-0 after:hover:w-full after:absolute after:bottom-0 after:left-0 after:transition-all ";
 
 	const items = headerLinks.map((props, idx) => (
 		<li className="px-2 py-2 relative text-md" key={idx}>

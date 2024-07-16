@@ -14,14 +14,15 @@ interface StatboxProps {
 
 export default function Stats() {
 	const { theme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-200/30" : "bg-black/10";
+	const bgCol = theme == "light" ? "bg-neutral-200/30" : "bg-black/35";
 	const textColor = theme == "light" ? "text-gray-900" : "text-gray-200";
 
 	return (
 		<div
-			className={`${bgCol} ${textColor} transition-all border-y border-slate-400/20 w-full h-max p-5 flex justify-center`}
+			className={`${bgCol} ${textColor} transition-all border-y border-slate-400/20 w-full h-max p-4 flex flex-col items-center justify-space-between`}
 		>
-			<div className="max-w-6xl w-full h-max grid grid-cols-3 max-lg:grid-cols-1 max-lg:px-5 grid-rows-2 gap-4 gap-x-4 items-center">
+
+			<div className="max-w-6xl w-full h-max grid grid-cols-3 max-lg:grid-cols-1 max-lg:px-5 my-10 grid-rows-2 gap-4 gap-x-4 items-center">
 				{stats.map((s, idx) => (
 					<StatBox
 						firstChild={idx == 0}
@@ -40,25 +41,26 @@ function StatBox(props: StatboxProps) {
 	const { theme } = useContext(ThemeContext);
 	const hoverEffects =
 		theme == "dark"
-			? "hover:border-slate-200/60 hover:bg-gradient-to-t hover:from-neutral-300/10 hover:to-white-0 hover:from-0% hover:to-70%"
+			? "hover:border-slate-200/60 hover:bg-gradient-to-t hover:from-white/10 hover:to-white-0 hover:from-0% hover:to-40%"
 			: "hover:bg-white/30";
-	const flex = "flex flex-row items-center xl:justify-center gap-3";
-	let textSettings = theme == "dark" && " bg-clip-text text-transparent  bg-gradient-to-b  from-gray-400 to-gray-600";
+	const flex = "flex flex-row items-center xl:justify-around";
+	let textSettings = theme == "dark" && " bg-clip-text text-transparent  bg-gradient-to-b  from-gray-300 to-gray-100/60";
+	
 	const firstChildProps = props.firstChild ? "row-span-2 col-span-1 !flex-col" : "";
-	const firstChildLabel = props.firstChild ? "text-8xl" : "text-5xl";
+	const firstChildLabel = props.firstChild ? "text-8xl" : "text-6xl";
 
 	return (
 		<div
-			className={`${firstChildProps} w-full h-full border border-slate-500/40 rounded-2xl transition-all p-3 ${hoverEffects} ${flex}`}
+			className={`${firstChildProps} w-full h-full  border border-slate-500/20 rounded-2xl transition-all p-5 ${hoverEffects} ${flex}`}
 		>
 			<div className="w-32 h-32 flex justify-center items-center">
-				<h1 className={`${fonts.num.className} tracking-tighter ${firstChildLabel} ${textSettings} `}>
+				<h3 className={`${fonts.num.className} tracking-tighter ${firstChildLabel} ${textSettings} `}>
 					{props.stats}
-				</h1>
+				</h3>
 			</div>
-			<div className="w-72 ml-4">
-				<h2 className={`${fonts.heading.className} tracking-tighter text-2xl`}>{props.label}</h2>
-				<p className={`${fonts.subtext.className} mt-1 text-xs tracking-tight opacity-50`}> {props.description}</p>
+			<div className="w-72 ml-3">
+				<h4 className={`${fonts.heading.className} text-xl`}>{props.label}</h4>
+				<p className={`${fonts.subtext.className} mt-1 leading-5 tracking-wide text-sm opacity-50`}> {props.description}</p>
 			</div>
 		</div>
 	);

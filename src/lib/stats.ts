@@ -14,7 +14,7 @@ const stats: Array<Stats> = [
     {
         stat: "3",
         label:"FRC Robots Made",
-        description:"Being a part of the Hall of Fame FRC Team 987, I was one of the robot designers for the 2023 season, 2023 offseason, and the 2024 season where we came back on the Einstein Field."
+        description:"I was a design lead for FIRST Robotics Competition Team 987. Using computer-aided design softwares, I designed competitive and high-performing robots."
     },
     {
         stat: "4",
@@ -22,9 +22,9 @@ const stats: Array<Stats> = [
         description:"Although not expert at any of this, I know many technical skills such as CAD Modeling, Graphic Design, Programming, Spreadsheets."
     },
     {
-        stat: "30+",
-        label:"Volunteering Hours",
-        description:"I was mainly involved with FIRST where I volunteered to events such as FLL and FTC."
+        stat: "20+",
+        label:"Awards and Certifications",
+        description:"This includes both extracurriculars, external, and actual academic awards"
     }
 ]
 

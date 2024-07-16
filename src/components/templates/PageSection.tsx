@@ -33,5 +33,5 @@ export default function PageSection(props: PageSectionProps) {
 			break;
 	}
 
-	return <section className={`w-full relative ${remHeight} ${flexCenter}`}>{props.children}</section>;
+	return <section className={`w-full relative  overflow-hidden ${remHeight} ${flexCenter}`}>{props.children}</section>;
 }

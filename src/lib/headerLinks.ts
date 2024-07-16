@@ -5,10 +5,6 @@ interface HeaderLink {
 
 const headerLinks: Array<HeaderLink> = [
   {
-    label: "About Me",
-    href: "/about",
-  },
-  {
     label: "Projects",
     href:"/projects"
   },
