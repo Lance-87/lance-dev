@@ -5,8 +5,8 @@ const heading = Inter_Tight({
 	subsets: ["latin"],
 });
 
-const heading_2 = Inter_Tight({
-	weight: "700",
+const heading_2 = Inter({
+	weight: "600",
 	subsets: ["latin"],
 });
 

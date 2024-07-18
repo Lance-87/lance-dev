@@ -17,13 +17,13 @@ import Image from "next/image";
 
 export default function Header() {
 	const { theme, setTheme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-100/10" : "bg-black/10";
+	const bgCol = theme == "light" ? "bg-neutral-100/30" : " bg-gray-600/5";
 
 	return (
-		<header
-			className={` ${bgCol} backdrop-blur z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}
-		>
-			<nav className="w-full h-full flex justify-end items-center gap-2 relative max-w-7xl mx-auto">
+		<header className={`z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}>
+			<nav
+				className={`${bgCol} backdrop-blur px-10 rounded-full w-full h-full flex justify-end items-center gap-2 relative max-w-7xl mx-auto`}
+			>
 				<Link href="/" className="flex-1">
 					<Image alt="site logo" src={"/Icon.png"} width={49} height={40} />
 				</Link>
@@ -101,7 +101,7 @@ function AnimatedSunMoon({ children, key }: { children: ReactNode; key: string }
 				display: "block",
 				transition: {
 					duration: 0.15,
-					delay: 0.148,
+					delay: 0.15,
 					ease: [0.4, 0, 0.2, 1],
 				},
 			}}

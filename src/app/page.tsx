@@ -11,7 +11,7 @@ import Parallax from "@/components/misc/Parallax";
 
 export default function Home() {
 	const { theme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-200" : "bg-gray-800";
+	const bgCol = theme == "light" ? "bg-neutral-300" : "bg-gray-800";
 
 	return (
 		<main className={`${bgCol} w-full h-max transition-colors flex flex-col items-center relative`}>

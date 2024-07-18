@@ -1,3 +1,3 @@
 export default function ProjectsSection() {
-	return <div className="w-full h-full border max-w-7xl"></div>;
+	return <div className="w-full h-full max-w-7xl"></div>;
 }

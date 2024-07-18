@@ -14,12 +14,12 @@ interface StatboxProps {
 
 export default function Stats() {
 	const { theme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-200/30" : "bg-black/35";
-	const textColor = theme == "light" ? "text-gray-900" : "text-gray-200";
+	const bgCol = theme == "light" ? "bg-neutral-200/20" : "bg-black/35";
+	const textColor = theme == "light" ? "text-gray-900" : "text-gray-300";
 
 	return (
 		<div
-			className={`${bgCol} ${textColor} transition-all border-y border-slate-400/20 w-full h-max p-4 flex flex-col items-center justify-space-between`}
+			className={`${bgCol} ${textColor} shadow-2xl transition-all border-y border-slate-400/10 w-full h-max p-4 flex flex-col items-center justify-space-between`}
 		>
 
 			<div className="max-w-6xl w-full h-max grid grid-cols-3 max-lg:grid-cols-1 max-lg:px-5 my-10 grid-rows-2 gap-4 gap-x-4 items-center">
@@ -41,8 +41,8 @@ function StatBox(props: StatboxProps) {
 	const { theme } = useContext(ThemeContext);
 	const hoverEffects =
 		theme == "dark"
-			? "hover:border-slate-200/60 hover:bg-gradient-to-t hover:from-white/10 hover:to-white-0 hover:from-0% hover:to-40%"
-			: "hover:bg-white/30";
+			? "bg-slate-700/10 hover:border-slate-500/40"
+			: "bg-slate-100/10 hover:bg-white/30";
 	const flex = "flex flex-row items-center xl:justify-around";
 	let textSettings = theme == "dark" && " bg-clip-text text-transparent  bg-gradient-to-b  from-gray-300 to-gray-100/60";
 	
@@ -51,7 +51,7 @@ function StatBox(props: StatboxProps) {
 
 	return (
 		<div
-			className={`${firstChildProps} w-full h-full  border border-slate-500/20 rounded-2xl transition-all p-5 ${hoverEffects} ${flex}`}
+			className={`${firstChildProps} shadow-xl w-full h-full  border border-slate-500/0 rounded-2xl transition-all p-5 ${hoverEffects} ${flex}`}
 		>
 			<div className="w-32 h-32 flex justify-center items-center">
 				<h3 className={`${fonts.num.className} tracking-tighter ${firstChildLabel} ${textSettings} `}>
