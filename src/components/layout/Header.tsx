@@ -15,12 +15,24 @@ import { navigation } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
 
+const initialPosition = {
+	y: -100
+}
+
+const animatePosition = {
+	y: 0,
+	transition:{
+		duration: 0.3,
+		ease: [.48,.62,.67,.99]
+	}
+}
+
 export default function Header() {
 	const { theme, setTheme } = useContext(ThemeContext);
 	const bgCol = theme == "light" ? "bg-neutral-100/30" : " bg-gray-600/5";
 
 	return (
-		<header className={`z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}>
+		<mt.header initial={initialPosition} animate={animatePosition} className={`z-20 w-full fixed h-20 max-md:h-18 left-0 top-0 py-2 md:px-12 xl:px-20  transition`}>
 			<nav
 				className={`${bgCol} backdrop-blur px-10 rounded-full w-full h-full flex justify-end items-center gap-2 relative max-w-7xl mx-auto`}
 			>
@@ -30,7 +42,7 @@ export default function Header() {
 				<NavigationItems ctx={{ theme, setTheme }} />
 				<ChangeThemeBtn ctx={{ theme, setTheme }} />
 			</nav>
-		</header>
+		</mt.header>
 	);
 }
 

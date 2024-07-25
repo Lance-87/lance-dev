@@ -39,9 +39,9 @@ export default function Stats() {
 
 function StatBox(props: StatboxProps) {
 	const { theme } = useContext(ThemeContext);
-	const hoverEffects =
+	const background =
 		theme == "dark"
-			? "bg-slate-700/10 hover:border-slate-500/40"
+			? "bg-gradient-to-tl from-black/10 to-slate-600/15 hover:border-slate-500/40"
 			: "bg-slate-100/10 hover:bg-white/30";
 	const flex = "flex flex-row items-center xl:justify-around";
 	let textSettings = theme == "dark" && " bg-clip-text text-transparent  bg-gradient-to-b  from-gray-300 to-gray-100/60";
@@ -51,7 +51,7 @@ function StatBox(props: StatboxProps) {
 
 	return (
 		<div
-			className={`${firstChildProps} shadow-xl w-full h-full  border border-slate-500/0 rounded-2xl transition-all p-5 ${hoverEffects} ${flex}`}
+			className={`${firstChildProps} shadow-xl w-full h-full  border border-slate-500/0 rounded-2xl transition-all p-5 ${background} ${flex}`}
 		>
 			<div className="w-32 h-32 flex justify-center items-center">
 				<h3 className={`${fonts.num.className} tracking-tighter ${firstChildLabel} ${textSettings} `}>
