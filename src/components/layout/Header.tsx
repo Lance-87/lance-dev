@@ -55,9 +55,9 @@ function NavigationItems({ ctx }: { ctx: Theme }) {
 		"after:h-0.5 after:w-0 after:hover:w-full after:absolute after:bottom-0 after:left-0 after:transition-all ";
 
 	const items = headerLinks.map((props, idx) => (
-		<li className="px-2 py-2 relative text-md" key={idx}>
+		<li className={`${hoverTextCol} ${baseAfterProps} px-2 py-2 relative text-md`} key={idx}>
 			<Link href={props.href}>
-				<p className={`${hoverTextCol} ${baseAfterProps}`}>{props.label}</p>
+				{props.label}
 			</Link>
 		</li>
 	));

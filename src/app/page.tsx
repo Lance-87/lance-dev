@@ -31,7 +31,7 @@ function HomeHero() {
 	const { theme } = useContext(ThemeContext);
 	const textCol = theme == "light" ? "from-gray-700 to-gray-900" : "from-gray-200 to-gray-400";
 	const subtextColor = theme == "light" ? "text-gray-900" : "text-gray-200";
-	const heroGradientColor = theme == "light" ? "from-gray-400/50" : "from-black/80";
+	const heroGradientColor = theme == "light" ? "from-gray-400/50" : "from-black";
 	const headerGradient = " bg-clip-text text-transparent decoration-clone bg-gradient-to-br";
 
 	const buttonColor =
