@@ -11,7 +11,12 @@ const headerLinks: Array<HeaderLink> = [
   {
     label: "Contact",
     href:"/contact"
-  }
+  },
+  {
+    label:"Resume",
+    href:"/resume"
+  },
+  
 ];
 
 export default headerLinks;

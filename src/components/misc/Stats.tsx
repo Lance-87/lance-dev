@@ -41,7 +41,7 @@ function StatBox(props: StatboxProps) {
 	const { theme } = useContext(ThemeContext);
 	const background =
 		theme == "dark"
-			? "bg-gradient-to-tl from-black/10 to-slate-600/15 hover:border-slate-500/40"
+			? "bg-gradient-to-tl from-slate-800/20  hover:border-slate-500/40"
 			: "bg-slate-100/10 hover:bg-white/30";
 	const flex = "flex flex-row items-center xl:justify-around";
 	let textSettings = theme == "dark" && " bg-clip-text text-transparent  bg-gradient-to-b  from-gray-300 to-gray-100/60";
