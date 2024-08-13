@@ -1,4 +1,4 @@
-import { DM_Sans, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Inter, Inter_Tight } from "next/font/google";
 
 const heading = Inter_Tight({
 	weight: "800",

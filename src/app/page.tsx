@@ -29,6 +29,7 @@ export default function Home() {
 
 function HomeHero() {
 	const { theme } = useContext(ThemeContext);
+
 	const textCol = theme == "light" ? "from-gray-700 to-gray-900" : "from-gray-200 to-gray-400";
 	const subtextColor = theme == "light" ? "text-gray-900" : "text-gray-200";
 	const heroGradientColor = theme == "light" ? "from-gray-400/50" : "from-black";
@@ -40,7 +41,7 @@ function HomeHero() {
 			: "hover:bg-gray-200 text-gray-200 hover:text-gray-900";
 	return (
 		<PageSection height={196}>
-			<Parallax />
+			<Parallax theme={theme}/>
 			<div className={`${heroGradientColor} absolute w-full h-full bg-gradient-to-br to-white/0`} />
 			<div className="w-full h-full max-w-7xl mx-auto">
 				<div className="mt-20 w-max h-162 flex items-center text-left z-10 ml-16 relative">
@@ -55,7 +56,7 @@ function HomeHero() {
 						</p>
 						<button
 							type="button"
-							className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-4 rounded-xl`}
+							className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-4 rounded-lg`}
 						>
 							About me
 						</button>
