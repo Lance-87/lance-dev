@@ -44,19 +44,19 @@ function HomeHero() {
 			<Parallax theme={theme}/>
 			<div className={`${heroGradientColor} absolute w-full h-full bg-gradient-to-br to-white/0`} />
 			<div className="w-full h-full max-w-7xl mx-auto">
-				<div className="mt-20 w-max h-162 flex items-center text-left z-10 ml-16 relative">
-					<div className="py-6 max-md:w-96 w-128 h-fit">
+				<div className="mt-20 w-full md:w-max h-162 flex items-center justify-center md:justify-start text-left z-10 md:ml-16 ml-0 relative">
+					<div className="w-60 px-2 md:px-0 md:w-96 h-fit text-center md:text-left">
 						<h1
-							className={`text-6xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
+							className={`text-4xl md:text-6xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
 						>
-							You actually opened it. I'm Lance.
+							(WIP) You actually opened it.
 						</h1>
-						<p className={`mt-3 ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}>
+						<p className={`mt-3 text-sm md:text-xl ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}>
 							I do things, so many things. But do I know the things that I do? Of course, not!
 						</p>
 						<button
 							type="button"
-							className={`${buttonColor} mt-8 transition-all text-lg border-2 px-24 py-4 rounded-lg`}
+							className={`${buttonColor} mt-8 transition-all text-lg border-2 px-12 md:px-24 py-2 md:py-4 rounded-lg`}
 						>
 							About me
 						</button>
