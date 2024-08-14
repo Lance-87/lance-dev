@@ -14,7 +14,7 @@ import BaseButton from "../templates/BaseButton";
 import { navigation } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
-import MenuBurger from "../misc/Burger";
+import MenuBurger from "../misc/Menu";
 
 const initialPosition = {
 	y: -100,
@@ -48,7 +48,7 @@ export default function Header() {
 		<>
 			<mt.header
 				initial={initialPosition}
-				className={`animHeader z-20 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-2 px-0 md:px-10 xl:px-20 `}
+				className={`animHeader z-40 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-2 px-0 md:px-10 xl:px-20 `}
 			>
 				<nav
 					className={`${bgCol} backdrop-blur overflow-hidden px-4 md:px-8 xl:px-12 py-2 md:py-8 md:rounded-lg w-full h-full flex justify-between items-center gap-2 relative max-w-7xl mx-auto`}
