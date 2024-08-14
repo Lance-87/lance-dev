@@ -14,6 +14,7 @@ import BaseButton from "../templates/BaseButton";
 import { navigation } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import MenuBurger from "../misc/Burger";
 
 const initialPosition = {
 	y: -100,
@@ -47,16 +48,19 @@ export default function Header() {
 		<>
 			<mt.header
 				initial={initialPosition}
-				className={`animHeader z-20 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-6 px-0 md:px-10 xl:px-20 `}
+				className={`animHeader z-20 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-2 px-0 md:px-10 xl:px-20 `}
 			>
 				<nav
-					className={`${bgCol} backdrop-blur overflow-hidden px-0 md:px-8 xl:px-12 py-2 md:py-8 rounded-lg w-full h-full flex justify-end items-center gap-2 relative max-w-7xl mx-auto`}
+					className={`${bgCol} backdrop-blur overflow-hidden px-4 md:px-8 xl:px-12 py-2 md:py-8 md:rounded-lg w-full h-full flex justify-between items-center gap-2 relative max-w-7xl mx-auto`}
 				>
-					<Link href="/" className="flex-1">
+					<Link href="/">
 						<Image alt="site logo" src={"/Icon.png"} width={49} height={40} />
 					</Link>
-					<NavigationItems ctx={{ theme, setTheme }} open={open} />
-					<ChangeThemeBtn ctx={{ theme, setTheme }} />
+					<div className="flex">
+						<NavigationItems ctx={{ theme, setTheme }} open={open} />
+						<ChangeThemeBtn ctx={{ theme, setTheme }} />
+					</div>
+					<MenuBurger />
 				</nav>
 			</mt.header>
 		</>
@@ -96,7 +100,7 @@ function NavigationItems({ ctx, open }: { ctx: Theme; open: boolean }) {
 	));
 
 	return (
-		<div className="h-max w-max max-md:hidden ">
+		<div className="h-max w-max hidden md:block">
 			<ul
 				className={` flex items-center content-center gap-1 overflow-hidden ${navigation.className} transition ${textCol} relative`}
 			>
@@ -111,7 +115,7 @@ function ChangeThemeBtn({ ctx }: { ctx: Theme }) {
 
 	const hoverTextCol = theme == "light" ? "after:hover:bg-black" : "after:hover:bg-white";
 	const baseAfterProps =
-		"after:h-0.5 after:w-0 after:hover:w-full after:absolute after:bottom-0 after:left-0 after:transition-all"
+		"after:h-0.5 after:w-0 after:hover:w-full after:absolute after:bottom-0 after:left-0 after:transition-all";
 
 	const icon =
 		theme == "light" ? (

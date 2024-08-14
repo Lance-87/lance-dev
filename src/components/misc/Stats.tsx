@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../providers/ThemeContext";
-import { motion as mt,animate, stagger, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion as mt, animate, stagger, useScroll, useMotionValueEvent } from "framer-motion";
 
 import * as fonts from "@/lib/fonts";
 import stats from "@/lib/stats";
@@ -10,14 +10,14 @@ interface StatboxProps {
 	label: string;
 	description: string;
 	firstChild?: boolean;
+	key: string;
 }
 
 export default function Stats() {
 	const { theme } = useContext(ThemeContext);
 	const [loaded, setLoaded] = useState(false);
-
 	const { scrollYProgress } = useScroll();
-
+	
 	useMotionValueEvent(scrollYProgress, "change", (latest) => {
 		if (latest > 0.25) {
 			setLoaded(true);
@@ -29,7 +29,7 @@ export default function Stats() {
 			animate(
 				".statBox",
 				{ opacity: 1 },
-				{ delay: stagger(0.075), duration: 0.5, ease: [0.45, 0, 0.55, 1], type:"decay" }
+				{ delay: stagger(0.075), duration: 0.5, ease: [0.45, 0, 0.55, 1], type: "decay" }
 			);
 		}
 	}, [loaded]);
@@ -43,7 +43,7 @@ export default function Stats() {
 		>
 			<div className="max-w-6xl w-full h-max grid grid-cols-3 max-lg:grid-cols-1 max-lg:px-5 my-10 grid-rows-2 gap-4 gap-x-4 items-center">
 				{stats.map((s, idx) => (
-					<StatBox firstChild={idx == 0} stats={s.stat} label={s.label} description={s.description} />
+					<StatBox key={`st-${idx}`} firstChild={idx == 0} stats={s.stat} label={s.label} description={s.description} />
 				))}
 			</div>
 		</div>
@@ -66,7 +66,8 @@ function StatBox(props: StatboxProps) {
 	return (
 		<mt.div
 			initial={{ opacity: 0 }}
-			style={{"transition": "0.1s ease-in border"}}
+			key={props.key}
+			style={{ transition: "border 0.1s ease-in, background 0.1s ease-in " }}
 			className={`statBox ${firstChildProps} shadow-xl w-full h-full border border-slate-500/0 rounded-lg p-5 ${background} ${flex}`}
 		>
 			<div className="w-32 h-32 flex justify-center items-center">

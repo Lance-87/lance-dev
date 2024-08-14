@@ -4,6 +4,8 @@ import ThemeContext from "@/components/providers/ThemeContext";
 import { useContext } from "react";
 import { hero, subtext } from "@/lib/fonts";
 
+import heroimg from "../../public/hero.png"
+
 import PageSection from "@/components/templates/PageSection";
 import Stats from "@/components/misc/Stats";
 import ProjectsSection from "@/components/misc/ProjectsSection";
@@ -41,7 +43,7 @@ function HomeHero() {
 			: "hover:bg-gray-200 text-gray-200 hover:text-gray-900";
 	return (
 		<PageSection height={196}>
-			<Parallax theme={theme}/>
+			<Parallax theme={theme} src={heroimg}/>
 			<div className={`${heroGradientColor} absolute w-full h-full bg-gradient-to-br to-white/0`} />
 			<div className="w-full h-full max-w-7xl mx-auto">
 				<div className="mt-20 w-full md:w-max h-162 flex items-center justify-center md:justify-start text-left z-10 md:ml-16 ml-0 relative">
