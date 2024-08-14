@@ -22,7 +22,7 @@ const config: Config = {
       },
       width:{
         "128":"32rem",
-        "162": "40rem",
+        "162":"40rem",
         "196":"48rem",
         "256":"64rem",
         "512":"128rem"

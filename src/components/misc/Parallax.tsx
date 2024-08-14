@@ -5,8 +5,8 @@ export default function Parallax({ theme, src }: { theme: string; src: StaticIma
 	const { scrollYProgress } = useScroll();
 	const y = useTransform(scrollYProgress, [0, 0.75], [0, 500]);
 	return (
-		<motion.div style={{ y }} className={`grayscale opacity-20 h-256 w-full absolute bg-img-${theme}`}>
-			<Image src={src} quality={10} loading="lazy" alt="" placeholder="blur" />
-		</motion.div> 
+		<motion.div style={{ y }} className={`h-512 w-256 lg:w-full absolute`}>
+			<Image src={src} fill quality={50} loading="lazy" alt=""  style={{ opacity: 0.3 }} />
+		</motion.div>
 	);
 }
