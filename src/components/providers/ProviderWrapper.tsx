@@ -3,6 +3,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import ThemeContext from "./ThemeContext";
 import MenuContext from "./MenuContext";
+import { Menu } from "../misc/Menu";
 
 export default function ProviderWrapper({ children }: { children: ReactNode }) {
 	const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -31,7 +32,9 @@ export default function ProviderWrapper({ children }: { children: ReactNode }) {
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme: changeTheme }}>
-			<MenuContext.Provider value={{ toggled, setToggled: toggleMenu }}>{children}</MenuContext.Provider>
+			<MenuContext.Provider value={{ toggled, setToggled: toggleMenu }}>
+			<Menu toggled={toggled} setToggled={toggleMenu} />
+			{children}</MenuContext.Provider>
 		</ThemeContext.Provider>
 	);
 }

@@ -14,7 +14,7 @@ import BaseButton from "../templates/BaseButton";
 import { navigation } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
-import MenuBurger from "../misc/Menu";
+import { MenuBurger } from "../misc/Menu";
 
 const initialPosition = {
 	y: -100,

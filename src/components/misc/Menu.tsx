@@ -2,15 +2,15 @@
 
 import { useContext, useEffect } from "react";
 import MenuContext from "../providers/MenuContext";
-import { animate, DOMKeyframesDefinition, DynamicAnimationOptions, motion as mt, stagger } from "framer-motion";
-import ModalPortal from "../templates/ModalPortal";
+import { animate, motion as mt, stagger } from "framer-motion";
 import ThemeContext from "../providers/ThemeContext";
 import headerLinks from "@/lib/headerLinks";
 import Link from "next/link";
 
 import * as fonts from "@/lib/fonts";
+import ModalPortal from "../templates/ModalPortal";
 
-export default function MenuBurger() {
+export function MenuBurger() {
 	const { toggled, setToggled } = useContext(MenuContext);
 	const { theme } = useContext(ThemeContext);
 	const color = theme == "dark" ? "bg-white" : "bg-black";
@@ -42,12 +42,6 @@ export default function MenuBurger() {
 		animate(initAnimations);
 		//@ts-ignore
 		animate(animations);
-
-		if (toggled) {
-			document.getElementById("main-body")?.classList.add("no-scroll");
-		} else {
-			document.getElementById("main-body")?.classList.remove("no-scroll");
-		}
 	}, [toggled]);
 
 	return (
@@ -66,9 +60,8 @@ export default function MenuBurger() {
 				</div>
 			</button>
 
-			<ModalPortal>
-				<Menu toggled={toggled} setToggled={setToggled} />
-			</ModalPortal>
+				
+
 		</>
 	);
 }
@@ -112,10 +105,12 @@ function useMenu(toggled: boolean) {
 	return animate(animations);
 }
 
-function Menu({ toggled, setToggled }: { toggled: boolean; setToggled: () => void }) {
+export function Menu({ toggled, setToggled }: { toggled: boolean; setToggled: () => void }) {
 	const { theme } = useContext(ThemeContext);
 
-	useMenu(toggled);
+	useEffect(() => {
+		useMenu(toggled);
+	}, [toggled]);
 
 	const color = theme == "dark" ? "bg-gradient-to-br from-gray-800 to-black" : "bg-gray-200";
 
