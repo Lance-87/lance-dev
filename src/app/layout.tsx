@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} max-lg:text-sm`}>
+			<body className={`${inter.className}`} id="main-body">
 				<ProviderWrapper>
 					<Header />
 					<SpeedInsights/>

@@ -17,7 +17,7 @@ const hero = DM_Sans({
 	fallback:["monospace"]
 });
 
-const subtext = DM_Sans({
+const subtext = Inter({
 	weight: "300",
 	subsets: ["latin"],
 });
