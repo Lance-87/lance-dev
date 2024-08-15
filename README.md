@@ -8,3 +8,5 @@ The site is built with the following:
 - MongoDB - Database
 - Prisma - Database ORM
 - Typescript - Programming Language
+- Tailwind - Styling
+- Framer Motion - Animations
