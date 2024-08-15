@@ -9,6 +9,7 @@ import Link from "next/link";
 
 import * as fonts from "@/lib/fonts";
 import ModalPortal from "../templates/ModalPortal";
+import ms from "@/lib/helpers/ms";
 
 export function MenuBurger() {
 	const { toggled, setToggled } = useContext(MenuContext);
@@ -42,6 +43,14 @@ export function MenuBurger() {
 		animate(initAnimations);
 		//@ts-ignore
 		animate(animations);
+
+		if (toggled) {
+			document.body.classList.add("no-scroll");
+		} else {
+			setTimeout(() => {
+				document.body.classList.remove("no-scroll");
+			}, ms(0.5));
+		}
 	}, [toggled]);
 
 	return (
@@ -59,9 +68,6 @@ export function MenuBurger() {
 					<mt.div initial={{ width: 0 }} className={`b3 block h-1 rounded-full ${color}`} />
 				</div>
 			</button>
-
-				
-
 		</>
 	);
 }
@@ -81,23 +87,23 @@ function useMenu(toggled: boolean) {
 				[
 					".m-link",
 					{ opacity: 1, y: 0 },
-					{ duration: 0.5, delay: stagger(0.05), ease: [0.16, 1, 0.3, 1], at: "-0.25" },
+					{ duration: 0.5, delay: stagger(0.05), ease: [0.16, 1, 0.3, 1], at: "-0.40" },
 				],
 		  ]
 		: [
 				[
 					".m-link",
 					{ opacity: 0, y: 50 },
-					{ duration: 0.5, delay: stagger(0.05, { from: "last" }), ease: [0.16, 1, 0.3, 1], at: "-0.1" },
+					{ duration: 0.5, delay: stagger(0.05, { from: "last" }), ease: [0.16, 1, 0.3, 1] },
 				],
-				[".menu", { height: 0 }, { duration: 0.5, ease: [0.16, 1, 0.3, 1] }],
+				[".menu", { height: 0 }, { duration: 0.5, ease: [0.16, 1, 0.3, 1], at: "-0.25" }],
 				[
 					".bgcont",
 					{
 						opacity: 0,
 						display: "none",
 					},
-					{ duration: 0.5, ease: [0.16, 1, 0.3, 1], at: "+0.01" },
+					{ duration: 0.5, ease: [0.16, 1, 0.3, 1], at: "-0.35" },
 				],
 		  ];
 

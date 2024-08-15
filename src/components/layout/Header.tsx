@@ -82,7 +82,7 @@ function NavigationItems({ ctx, open }: { ctx: Theme; open: boolean }) {
 				{ y: 0 },
 				{
 					delay: stagger(0.075),
-					ease: [0.45, 0, 0.55, 1],
+					ease: [0.34, 1.56, 0.64, 1],
 					duration: 1,
 				}
 			);

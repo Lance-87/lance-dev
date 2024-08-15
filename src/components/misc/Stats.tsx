@@ -28,8 +28,8 @@ export default function Stats() {
 		if (loaded) {
 			animate(
 				".statBox",
-				{ opacity: 1, x: 0 },
-				{ delay: stagger(0.075), duration: 0.5, ease: [0.45, 0, 0.55, 1] }
+				{ opacity: 1, x: 0, },
+				{ delay: stagger(0.1), duration: 0.75, ease: [0, 0.55, 0.45, 1] }
 			);
 		}
 	}, [loaded]);
@@ -75,7 +75,7 @@ function StatBox(props: StatboxProps) {
 
 	return (
 		<mt.div
-			initial={{ opacity: 0, x: -10 }}
+			initial={{ opacity: 0, x: -20 }}
 			key={props.key}
 			style={{ transition: "border 0.1s ease-in, background 0.1s ease-in " }}
 			className={`statBox ${background} ${flex} ${firstChildProps} shadow-xl w-full border border-slate-500/0 rounded-2xl`}
