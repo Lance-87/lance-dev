@@ -4,7 +4,7 @@ import ThemeContext from "@/components/providers/ThemeContext";
 import { useContext } from "react";
 import { hero, subtext } from "@/lib/fonts";
 
-import heroimg from "../../public/hero.png"
+import heroimg from "../../public/hero.png";
 
 import PageSection from "@/components/templates/PageSection";
 import Stats from "@/components/misc/Stats";
@@ -17,7 +17,9 @@ export default function Home() {
 
 	return (
 		<main className={`${bgCol} w-full h-max transition-colors flex flex-col items-center relative`}>
-			<HomeHero />
+			<PageSection height={196} autoFit="none">
+				<HomeHero />
+			</PageSection>
 			<PageSection height={96} autoFit="lg">
 				<Stats />
 			</PageSection>
@@ -42,8 +44,8 @@ function HomeHero() {
 			? "hover:bg-gray-900 border-gray-900 text-gray-900 hover:text-gray-200"
 			: "hover:bg-gray-200 text-gray-200 hover:text-gray-900";
 	return (
-		<PageSection height={196} autoFit="none">
-			<Parallax theme={theme} src={heroimg}/>
+		<>
+			<Parallax theme={theme} src={heroimg} />
 			<div className={`${heroGradientColor} absolute w-full h-full bg-gradient-to-br to-white/0`} />
 			<div className="w-full h-full max-w-7xl mx-auto">
 				<div className="mt-20 w-full md:w-max h-162 flex items-center justify-center md:justify-start text-left z-10 md:ml-16 ml-0 relative">
@@ -53,7 +55,9 @@ function HomeHero() {
 						>
 							(WIP) You actually opened it.
 						</h1>
-						<p className={`mt-3 text-sm md:text-lg ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}>
+						<p
+							className={`mt-3 text-sm md:text-lg ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}
+						>
 							I do things, so many things. But do I know the things that I do? Of course, not!
 						</p>
 						<button
@@ -65,6 +69,6 @@ function HomeHero() {
 					</div>
 				</div>
 			</div>
-		</PageSection>
+		</>
 	);
 }

@@ -15,6 +15,7 @@ import { navigation } from "@/lib/fonts";
 import Link from "next/link";
 import Image from "next/image";
 import { MenuBurger } from "../misc/Menu";
+import useInit from "@/lib/hooks/useInit";
 
 const initialPosition = {
 	y: -100,
@@ -22,15 +23,13 @@ const initialPosition = {
 };
 
 export default function Header() {
-	const [open, setOpen] = useState(false);
 	const [load, setLoad] = useState(false);
 	const { theme, setTheme } = useContext(ThemeContext);
 	const bgCol = theme == "light" ? "bg-neutral-100/30" : " bg-gray-600/5";
 
-	useEffect(() => {
-		setOpen(true);
+	useInit(() => {
 		setLoad(true);
-	}, []);
+	});
 
 	useEffect(() => {
 		animate(
@@ -57,7 +56,7 @@ export default function Header() {
 						<Image alt="site logo" src={"/Icon.png"} width={49} height={40} />
 					</Link>
 					<div className="flex">
-						<NavigationItems ctx={{ theme, setTheme }} open={open} />
+						<NavigationItems ctx={{ theme, setTheme }} load={load} />
 						<ChangeThemeBtn ctx={{ theme, setTheme }} />
 					</div>
 					<MenuBurger />
@@ -67,7 +66,7 @@ export default function Header() {
 	);
 }
 
-function NavigationItems({ ctx, open }: { ctx: Theme; open: boolean }) {
+function NavigationItems({ ctx, load }: { ctx: Theme; load: boolean }) {
 	const { theme } = ctx;
 
 	const textCol = theme == "light" ? "text-gray-600" : "text-gray-200";
@@ -76,7 +75,7 @@ function NavigationItems({ ctx, open }: { ctx: Theme; open: boolean }) {
 		"after:h-0.5 after:w-0 after:hover:w-full after:absolute after:bottom-0 after:left-0 after:transition-all";
 
 	useEffect(() => {
-		if (open) {
+		if (load) {
 			animate(
 				".anim",
 				{ y: 0 },
@@ -87,7 +86,7 @@ function NavigationItems({ ctx, open }: { ctx: Theme; open: boolean }) {
 				}
 			);
 		}
-	}, [open]);
+	}, [load]);
 
 	const items = headerLinks.map((props, idx) => (
 		<mt.li

@@ -85,7 +85,7 @@ function StatBox(props: StatboxProps) {
 			</div>
 			<div className="w-full ml-3">
 				<h4 className={`${fonts.heading.className} text-md lg:text-xl`}>{props.label}</h4>
-				<p className={`${fonts.subtext.className} mt-1 text-xs opacity-50`}>{props.description}</p>
+				<p className={`${fonts.subtext.className} mt-1 text-sm md:text:md opacity-50`}>{props.description}</p>
 			</div>
 		</mt.div>
 	);

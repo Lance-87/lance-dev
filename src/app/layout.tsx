@@ -5,6 +5,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import { Menu } from "@/components/misc/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,6 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${inter.className}`} id="mainbody">
 				<ProviderWrapper>
-					
 					<Header />
 					<SpeedInsights />
 					{children}

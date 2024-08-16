@@ -8,8 +8,8 @@ import headerLinks from "@/lib/headerLinks";
 import Link from "next/link";
 
 import * as fonts from "@/lib/fonts";
-import ModalPortal from "../templates/ModalPortal";
 import ms from "@/lib/helpers/ms";
+import ModalPortal from "../templates/ModalPortal";
 
 export function MenuBurger() {
 	const { toggled, setToggled } = useContext(MenuContext);
@@ -43,14 +43,6 @@ export function MenuBurger() {
 		animate(initAnimations);
 		//@ts-ignore
 		animate(animations);
-
-		if (toggled) {
-			document.body.classList.add("no-scroll");
-		} else {
-			setTimeout(() => {
-				document.body.classList.remove("no-scroll");
-			}, ms(0.5));
-		}
 	}, [toggled]);
 
 	return (
@@ -68,6 +60,7 @@ export function MenuBurger() {
 					<mt.div initial={{ width: 0 }} className={`b3 block h-1 rounded-full ${color}`} />
 				</div>
 			</button>
+			<Menu />
 		</>
 	);
 }
@@ -107,12 +100,21 @@ function useMenu(toggled: boolean) {
 				],
 		  ];
 
+	if (toggled) {
+		document.body.classList.add("no-scroll");
+	} else {
+		setTimeout(() => {
+			document.body.classList.remove("no-scroll");
+		}, ms(0.5));
+	}
+
 	//@ts-ignore
 	return animate(animations);
 }
 
-export function Menu({ toggled, setToggled }: { toggled: boolean; setToggled: () => void }) {
+export function Menu() {
 	const { theme } = useContext(ThemeContext);
+	const { toggled, setToggled } = useContext(MenuContext);
 
 	useEffect(() => {
 		useMenu(toggled);
@@ -134,17 +136,19 @@ export function Menu({ toggled, setToggled }: { toggled: boolean; setToggled: ()
 	));
 
 	return (
-		<mt.div initial={{ opacity: 0 }} className={`bgcont fixed left-0 top-0 z-20 w-screen h-screen bg-black/50`}>
-			<mt.nav
-				initial={{ height: 0 }}
-				className={`menu mx-auto h-[70%] ${color}  w-full flex items-center rounded-b-3xl`}
-			>
-				<ul
-					className={`mx-auto ${fonts.navigation.className} text-2xl text-white content-center gap-1 overflow-hidden transition relative`}
+		<ModalPortal>
+			<mt.div initial={{ opacity: 0 }} className={`bgcont fixed left-0 top-0 z-20 w-screen h-screen bg-black/50`}>
+				<mt.nav
+					initial={{ height: 0 }}
+					className={`menu mx-auto h-[70%] ${color}  w-full flex items-center rounded-b-3xl`}
 				>
-					{items}
-				</ul>
-			</mt.nav>
-		</mt.div>
+					<ul
+						className={`mx-auto ${fonts.navigation.className} text-2xl text-white content-center gap-1 overflow-hidden transition relative`}
+					>
+						{items}
+					</ul>
+				</mt.nav>
+			</mt.div>
+		</ModalPortal>
 	);
 }
