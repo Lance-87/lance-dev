@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { hero, subtext } from "@/lib/fonts";
 
 import heroimg from "../../public/hero.png";
-
+1
 import PageSection from "@/components/templates/PageSection";
 import Stats from "@/components/misc/Stats";
 import ProjectsSection from "@/components/misc/ProjectsSection";
@@ -53,12 +53,12 @@ function HomeHero() {
 						<h1
 							className={`text-5xl md:text-6xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
 						>
-							(WIP) You actually opened it.
+							This site is a work in progress.
 						</h1>
 						<p
 							className={`mt-3 text-sm md:text-lg ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}
 						>
-							I do things, so many things. But do I know the things that I do? Of course, not!
+							This site will eventually showcase everything that I do
 						</p>
 						<button
 							type="button"
