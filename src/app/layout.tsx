@@ -2,12 +2,10 @@ import ProviderWrapper from "@/components/providers/ProviderWrapper";
 import Header from "@/components/layout/Header";
 import type { Metadata, Viewport } from "next";
 
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { Menu } from "@/components/misc/Menu";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
 	width: "device-width",
@@ -28,7 +26,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className}`} id="mainbody">
+			<body className={`${GeistSans.className}`} id="mainbody">
 				<ProviderWrapper>
 					<Header />
 					<SpeedInsights />

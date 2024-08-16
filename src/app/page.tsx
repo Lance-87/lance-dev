@@ -5,28 +5,29 @@ import { useContext } from "react";
 import { hero, subtext } from "@/lib/fonts";
 
 import heroimg from "../../public/hero.png";
-1
+
 import PageSection from "@/components/templates/PageSection";
 import Stats from "@/components/misc/Stats";
 import ProjectsSection from "@/components/misc/ProjectsSection";
 import Parallax from "@/components/misc/Parallax";
+import { GeistSans } from "geist/font/sans";
 
 export default function Home() {
 	const { theme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-300" : "bg-gray-800";
+	const bgCol = theme == "light" ? "bg-neutral-300" : "bg-neutral-950";
 
 	return (
 		<main className={`${bgCol} w-full h-max transition-colors flex flex-col items-center relative`}>
 			<PageSection height={196} autoFit="none">
 				<HomeHero />
 			</PageSection>
-			<PageSection height={96} autoFit="lg">
+			<PageSection height={128} autoFit="lg">
 				<Stats />
 			</PageSection>
-			<PageSection height={128} autoFit="none"></PageSection>
 			<PageSection height={162} autoFit="lg" flexCenter>
 				<ProjectsSection />
 			</PageSection>
+			<PageSection height={96} autoFit="none"></PageSection>
 		</main>
 	);
 }
@@ -34,10 +35,10 @@ export default function Home() {
 function HomeHero() {
 	const { theme } = useContext(ThemeContext);
 
-	const textCol = theme == "light" ? "from-gray-700 to-gray-900" : "from-gray-200 to-gray-400";
-	const subtextColor = theme == "light" ? "text-gray-900" : "text-gray-200";
-	const heroGradientColor = theme == "light" ? "from-gray-400/80" : "from-black";
+	const textCol = theme == "light" ? "from-gray-700 to-gray-900" : "from-neutral-300 to-neutral-500";
+	const subtextColor = theme == "light" ? "text-gray-900" : "text-white-100";
 	const headerGradient = " bg-clip-text text-transparent decoration-clone bg-gradient-to-br";
+	const heroGradientColor = theme == "light" ? "from-gray-400/80" : "from-neutral-950";
 
 	const buttonColor =
 		theme == "light"
@@ -46,18 +47,16 @@ function HomeHero() {
 	return (
 		<>
 			<Parallax theme={theme} src={heroimg} />
-			<div className={`${heroGradientColor} absolute w-full h-full bg-gradient-to-br to-white/0`} />
-			<div className="w-full h-full max-w-7xl mx-auto">
-				<div className="mt-20 w-full md:w-max h-162 flex items-center justify-center md:justify-start text-left z-10 md:ml-16 ml-0 relative">
-					<div className="w-60 px-2 md:px-0 md:w-96 h-fit text-center md:text-left">
+			<div className={`${heroGradientColor} -z-0 absolute w-full h-full bg-gradient-to-t`} />
+			<div className="w-full h-full max-w-7xl px-4 mx-auto">
+				<div className="mt-20 w-full px-4 h-162 flex items-center justify-center md:justify-start text-left z-10relative">
+					<div className="w-60 md:px-0 z-20 md:w-96 h-fit text-center md:text-left">
 						<h1
-							className={`text-5xl md:text-6xl leading-tighter tracking-tighter ${textCol} ${headerGradient} ${hero.className}`}
+							className={`text-5xl md:text-6xl leading-tight tracking-tighter font-bold ${textCol} ${headerGradient}`}
 						>
 							This site is a work in progress.
 						</h1>
-						<p
-							className={`mt-3 text-sm md:text-lg ${subtext.className} ${subtextColor} tracking-tight text-md opacity-65`}
-						>
+						<p className={`mt-3 text-sm md:text-lg font-light ${subtextColor} ${subtext} text-md`}>
 							This site will eventually showcase everything that I do
 						</p>
 						<button

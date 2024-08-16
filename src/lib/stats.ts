@@ -23,7 +23,7 @@ const stats: Array<Stats> = [
     },
     {
         stat: "20+",
-        label:"Awards and Certifications",
+        label:"Awards & Certifications",
         description:"This includes both extracurriculars, external, and actual academic awards"
     }
 ]

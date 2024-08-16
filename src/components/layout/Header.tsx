@@ -1,21 +1,20 @@
 "use client";
 
 //third-party imports
-import { ReactNode, useContext, useEffect, useState } from "react";
-import ThemeContext, { Theme } from "../providers/ThemeContext";
-import { Sun, Moon } from "react-feather";
 import { AnimatePresence, animate, motion as mt, stagger } from "framer-motion";
+import { ReactNode, useContext, useEffect, useState } from "react";
+import { Moon, Sun } from "react-feather";
+import ThemeContext, { Theme } from "../providers/ThemeContext";
 
 //fonts
 
 //lib imports
 import headerLinks from "@/lib/headerLinks";
-import BaseButton from "../templates/BaseButton";
-import { navigation } from "@/lib/fonts";
-import Link from "next/link";
-import Image from "next/image";
-import { MenuBurger } from "../misc/Menu";
 import useInit from "@/lib/hooks/useInit";
+import Image from "next/image";
+import Link from "next/link";
+import { MenuBurger } from "../misc/Menu";
+import BaseButton from "../templates/BaseButton";
 
 const initialPosition = {
 	y: -100,
@@ -25,7 +24,7 @@ const initialPosition = {
 export default function Header() {
 	const [load, setLoad] = useState(false);
 	const { theme, setTheme } = useContext(ThemeContext);
-	const bgCol = theme == "light" ? "bg-neutral-100/30" : " bg-gray-600/5";
+	const bgCol = theme == "light" ? "bg-neutral-100/30" : " bg-neutral-700/15";
 
 	useInit(() => {
 		setLoad(true);
@@ -47,7 +46,7 @@ export default function Header() {
 		<>
 			<mt.header
 				initial={initialPosition}
-				className={`animHeader z-40 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-2 px-0 md:px-10 xl:px-20 `}
+				className={`animHeader z-50 w-full fixed h-16 md:h-20 xl:h-22 left-0 top-0 py-0 md:py-2 px-0 md:px-10 xl:px-20 `}
 			>
 				<nav
 					className={`${bgCol} backdrop-blur overflow-hidden px-4 md:px-8 xl:px-12 py-2 md:py-8 md:rounded-lg w-full h-full flex justify-between items-center gap-2 relative max-w-7xl mx-auto`}
@@ -91,7 +90,7 @@ function NavigationItems({ ctx, load }: { ctx: Theme; load: boolean }) {
 	const items = headerLinks.map((props, idx) => (
 		<mt.li
 			initial={{ y: 50 }}
-			className={`${hoverTextCol} ${baseAfterProps} px-2 py-2 relative text-md anim`}
+			className={`${hoverTextCol} ${baseAfterProps} text-sm px-2 py-2 relative text-md anim`}
 			key={idx}
 		>
 			<Link href={props.href}>{props.label}</Link>
@@ -101,7 +100,7 @@ function NavigationItems({ ctx, load }: { ctx: Theme; load: boolean }) {
 	return (
 		<div className="h-max w-max hidden md:block">
 			<ul
-				className={` flex items-center content-center gap-1 overflow-hidden ${navigation.className} transition ${textCol} relative`}
+				className={` flex items-center content-center gap-1 overflow-hidden transition ${textCol} relative`}
 			>
 				{items}
 			</ul>
