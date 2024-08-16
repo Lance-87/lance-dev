@@ -137,7 +137,7 @@ export function Menu() {
 
 	return (
 		<ModalPortal>
-			<mt.div initial={{ opacity: 0 }} className={`bgcont fixed left-0 top-0 z-20 w-screen h-screen bg-black/50`}>
+			<mt.div initial={{ opacity: 0, display:"none" }} className={`bgcont fixed left-0 top-0 z-20 w-screen h-screen bg-black/50`}>
 				<mt.nav
 					initial={{ height: 0 }}
 					className={`menu mx-auto h-[70%] ${color}  w-full flex items-center rounded-b-3xl`}
