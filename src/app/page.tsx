@@ -23,10 +23,10 @@ export default function Home() {
 			<PageSection height={96} autoFit="lg">
 				<Stats />
 			</PageSection>
-			<PageSection height={162} autoFit="none" flexCenter>
+			<PageSection height={128} autoFit="none"></PageSection>
+			<PageSection height={162} autoFit="lg" flexCenter>
 				<ProjectsSection />
 			</PageSection>
-			<PageSection height={162} autoFit="none"></PageSection>
 		</main>
 	);
 }

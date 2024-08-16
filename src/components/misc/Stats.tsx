@@ -10,7 +10,6 @@ interface StatboxProps {
 	label: string;
 	description: string;
 	firstChild?: boolean;
-	key: string;
 }
 
 export default function Stats() {
@@ -76,7 +75,6 @@ function StatBox(props: StatboxProps) {
 	return (
 		<mt.div
 			initial={{ opacity: 0, x: -20 }}
-			key={props.key}
 			style={{ transition: "border 0.1s ease-in, background 0.1s ease-in " }}
 			className={`statBox ${background} ${flex} ${firstChildProps} shadow-xl w-full border border-slate-500/0 rounded-2xl`}
 		>
