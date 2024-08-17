@@ -21,13 +21,15 @@ export default function Home() {
 			<PageSection height={196} autoFit="none">
 				<HomeHero />
 			</PageSection>
-			<PageSection height={128} autoFit="lg">
+			<PageSection height={96} autoFit="lg">
 				<Stats />
 			</PageSection>
 			<PageSection height={162} autoFit="lg" flexCenter>
 				<ProjectsSection />
 			</PageSection>
-			<PageSection height={96} autoFit="none"></PageSection>
+			<PageSection height={96} autoFit="none">
+				<div id="contacts"></div>
+			</PageSection>
 		</main>
 	);
 }
