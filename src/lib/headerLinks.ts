@@ -10,7 +10,7 @@ const headerLinks: Array<HeaderLink> = [
   },
   {
     label: "Contact",
-    href:"/contact"
+    href:"#contact"
   },
   {
     label:"Resume",

@@ -17,10 +17,8 @@ const hero = DM_Sans({
 	fallback:["monospace"]
 });
 
-const subtext = Inter({
-	weight: "300",
-	subsets: ["latin"],
-});
+const subtext = "font-extralight"
+
 const num = Inter({
 	weight: "800",
 	subsets: ["latin"],

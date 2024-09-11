@@ -120,7 +120,7 @@ export function Menu() {
 		useMenu(toggled);
 	}, [toggled]);
 
-	const color = theme == "dark" ? "bg-gradient-to-br from-gray-800 to-black" : "bg-gray-200";
+	const color = theme == "dark" ? "bg-gradient-to-br border border-gray-900 from-neutral-950" : "bg-gray-200";
 
 	const items = headerLinks.map((props, idx) => (
 		<mt.li
@@ -143,7 +143,7 @@ export function Menu() {
 					className={`menu mx-auto h-[70%] ${color}  w-full flex items-center rounded-b-3xl`}
 				>
 					<ul
-						className={`mx-auto ${fonts.navigation.className} text-2xl text-white content-center gap-1 overflow-hidden transition relative`}
+						className={`mx-auto font-light text-2xl text-white content-center gap-1 overflow-hidden transition relative`}
 					>
 						{items}
 					</ul>
